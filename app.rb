@@ -10,7 +10,7 @@ class BookmarkManager < Sinatra::Base
     erb :bookmarks
   end
 
-  get '/add_bookmark' do
+  get '/bookmarks/add' do
     erb :add_bookmark
   end
 
@@ -19,6 +19,10 @@ class BookmarkManager < Sinatra::Base
     title = params[:title]
     Bookmark.create(title, url)
     erb :bookmarks
+  end
+
+  delete '/delete_bookmark' do
+    
   end
 
   run! if app_file == $0

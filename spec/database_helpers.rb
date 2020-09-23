@@ -17,4 +17,3 @@ def add_urls
   Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
   Bookmark.create(url: 'http://www.google.com', title: 'Google')
 end
-

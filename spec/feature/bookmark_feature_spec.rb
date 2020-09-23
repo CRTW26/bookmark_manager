@@ -14,10 +14,19 @@ end
 feature 'Add a new bookmark' do
   scenario 'Add a bookmark' do
     add_urls
-    visit('/add_bookmark')
+    visit('/bookmarks/add')
     fill_in('title', with: 'Apple')
     fill_in('url', with: 'www.apple.com')
     click_button("Submit")
     expect(page).to have_content "Apple"
+  end
+end
+
+feature 'Delete a bookmark' do
+  scenario 'User wants to delete a bookmark' do
+    Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    visit('/bookmarks')
+    click_button("Delete")
+    expect(page).not_to have_content("makers")
   end
 end
