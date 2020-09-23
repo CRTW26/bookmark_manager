@@ -26,7 +26,7 @@ feature 'Delete a bookmark' do
   scenario 'User wants to delete a bookmark' do
     Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     visit('/bookmarks')
-    click_button("Delete")
+    click_button("delete")
     expect(page).not_to have_content("makers")
   end
 end
