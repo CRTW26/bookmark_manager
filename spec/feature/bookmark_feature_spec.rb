@@ -30,3 +30,24 @@ feature 'Delete a bookmark' do
     expect(page).not_to have_content("makers")
   end
 end
+
+feature 'Update a bookmark' do
+  scenario 'User wants to access a page to update the bookmark' do
+    Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    visit('/bookmarks')
+    click_button("update")
+    expect(page).to have_content('Update Bookmark')
+  end
+
+  scenario 'User wants to update a bookmark' do
+    Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    visit('/bookmarks')
+    click_button("update")
+    fill_in('title', with: 'Apple')
+    fill_in('url', with: 'www.apple.com')
+    click_button("Submit")
+    expect(page).to have_content "Apple"
+  end
+
+
+end

@@ -7,9 +7,12 @@
         <%= bookmark.title %>
       </a>
 
-      <form method="post" action="/bookmarks/<%=bookmark.id %>"> 
+      <form method="post" action="/bookmarks/<%= bookmark.id %>"> 
       <input id="hidden" type="hidden" name="_method" value="delete">
       <input type="submit" value="delete"></form>
+
+      <form method="get" action="/bookmarks/edit/<%= bookmark.id %>">
+      <input type="submit" value="update"></form>
 
     </li>
   <% end %>
