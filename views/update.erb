@@ -2,7 +2,7 @@
 <H1>Update Bookmark</h1>
 
 <form method="post" action="/bookmarks/<%= @params %>"> 
-
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <input type="text" name="title">Title</input>
   <input type="text" name="url">URL</input>
 

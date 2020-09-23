@@ -38,4 +38,15 @@ describe '.all' do
       expect(Bookmark.all.length).to eq 0 
     end
   end
+
+  describe '.update' do
+    it 'updates the title and url of a bookmark' do 
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      persisted_data = persisted_data(id: bookmark.id)
+      bookmark = Bookmark.update(persisted_data['id'], 'To see if test works', 'http://www.toseeiftestworks.com')
+      expect(bookmark.id).to eq persisted_data['id']
+      expect(bookmark.title).to eq 'To see if test works'
+      expect(bookmark.url).to eq 'http://www.toseeiftestworks.com'
+    end
+  end 
 end

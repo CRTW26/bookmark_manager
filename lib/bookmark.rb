@@ -29,7 +29,13 @@ class Bookmark
   def self.delete(id)
     Bookmark.test_check
     @connection.exec("DELETE FROM bookmarks WHERE id = #{id}")
-  end    
+  end   
+  
+  def self.update(id, title, url)
+    Bookmark.test_check
+    result = @connection.exec("UPDATE bookmarks SET title = '#{title}', url = '#{url}' WHERE id= #{id} RETURNING id, title, url;")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
 
 private
   def self.test_check
