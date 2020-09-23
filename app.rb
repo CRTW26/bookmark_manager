@@ -22,10 +22,10 @@ class BookmarkManager < Sinatra::Base
     title = params[:title]
     Bookmark.create(title, url)
     erb :bookmarks
-    p ENV
   end
 
   delete '/bookmarks/:id' do
+    Bookmark.delete(params[:id])
     redirect '/bookmarks'
   end
 
