@@ -27,3 +27,7 @@ I would like to add a new bookmark
  ```
 
  To set up the appropriate tables, connect to the database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+# For testing
+
+Connect to 'psql' and create the 'bookmark_manager_test' database.

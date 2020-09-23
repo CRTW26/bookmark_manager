@@ -4,6 +4,10 @@ require_relative './lib/bookmark'
 class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
+  
+# before do
+#   set up database
+# end
 
   get '/' do
     redirect '/bookmarks'
