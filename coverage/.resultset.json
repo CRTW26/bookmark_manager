@@ -1,55 +1,56 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/samcolson/Documents/Projects/Week_Four/bookmark-manager/spec/databaseconnection_spec.rb": {
+      "/Users/samcolson/Documents/Projects/Week_Four/bookmark-manager/spec/bookmark_spec.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
           1,
           1,
           null,
           1,
           1,
-          null,
+          1,
           null,
           1,
           1,
           1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/samcolson/Documents/Projects/Week_Four/bookmark-manager/lib/databaseconnection.rb": {
-        "lines": [
           1,
           null,
-          null,
-          null,
           1,
-          2,
-          2,
-          null,
+          0,
+          0,
+          0,
           0,
           null,
           null,
           null,
           1,
+          1,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
           null,
@@ -57,6 +58,6 @@
         ]
       }
     },
-    "timestamp": 1600876689
+    "timestamp": 1600952831
   }
 }

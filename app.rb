@@ -1,13 +1,16 @@
 require 'sinatra/base'
-require_relative './lib/bookmark'
+require_relative './lib/bookmark.rb'
+require_relative './lib/database_connection.rb'
+require './lib/database_connection_setup.rb'
+
 
 class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
   
-# before do
-#   set up database
-# end
+ # before do
+  #  @connection = DatabaseConnection.setup('bookmark_manager')
+  #end
 
   get '/' do
     redirect '/bookmarks'
