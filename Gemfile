@@ -7,4 +7,4 @@ gem 'simplecov-console'
 gem 'sinatra'
 gem 'rspec'
 gem 'rubocop'
-
+gem 'sinatra-flash'
