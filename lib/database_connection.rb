@@ -12,4 +12,12 @@ class DatabaseConnection
   def self.query(sql)
     @connection.exec(sql)
   end
+
+  # def self.check
+  #   if ENV['ENVIRONMENT'] == 'test'
+  #     DatabaseConnection.setup('bookmark_manager_test')
+  #   else
+  #     DatabaseConnection.setup('bookmark_manager')
+  #   end
+  # end
 end

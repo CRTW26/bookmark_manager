@@ -6,9 +6,9 @@ describe '.all' do
   it 'returns a list of bookmarks' do
     @connection = DatabaseConnection.setup('bookmark_manager')
  
-    bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
-    Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
-    Bookmark.create(url: "http://www.google.com", title: "Google")
+    bookmark = Bookmark.create('Makers Academy', 'http://www.makersacademy.com')
+    Bookmark.create("Destroy All Software", "http://www.destroyallsoftware.com")
+    Bookmark.create("Google", "http://www.google.com")
  
     bookmarks = Bookmark.all
     
@@ -22,7 +22,7 @@ describe '.all' do
 
  describe '.create' do
   it 'creates a new bookmark' do
-    bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+    bookmark = Bookmark.create('Test Bookmark', 'http://www.testbookmark.com')
     persisted_data = persisted_data(id: bookmark.id)
 
     expect(bookmark).to be_a Bookmark
@@ -33,7 +33,7 @@ describe '.all' do
 
   describe '.delete' do 
     it 'deletes a bookmark' do
-      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      bookmark = Bookmark.create('Test Bookmark', 'http://www.testbookmark.com')
       Bookmark.delete(bookmark.id)
       expect(Bookmark.all.length).to eq 0 
     end
@@ -41,7 +41,7 @@ describe '.all' do
 
   describe '.update' do
     it 'updates the title and url of a bookmark' do 
-      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      bookmark = Bookmark.create('http://www.testbookmark.com', 'Test Bookmark')
       persisted_data = persisted_data(id: bookmark.id)
       bookmark = Bookmark.update(persisted_data['id'], 'To see if test works', 'http://www.toseeiftestworks.com')
       expect(bookmark.id).to eq persisted_data['id']

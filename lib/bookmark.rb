@@ -12,6 +12,7 @@ class Bookmark
   end
 
   def self.all
+    Bookmark.set_environment
     result = DatabaseConnection.query("SELECT * FROM bookmarks")
     result.map do |bookmark|
       Bookmark.new(
@@ -22,9 +23,8 @@ class Bookmark
     end
   end
 
-  def self.create(url:, title:)
-
-  # result = @connection.exec("SELECT * FROM bookmarks")
+  def self.create(title, url)
+    Bookmark.set_environment
 
     result = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
     
@@ -32,12 +32,24 @@ class Bookmark
   end
 
   def self.delete(id)
+    Bookmark.set_environment
+    @connection = DatabaseConnection.connection
+
     @connection.exec("DELETE FROM bookmarks WHERE id = #{id}")
   end   
   
   def self.update(id, title, url)
+    Bookmark.set_environment
     result = @connection.exec("UPDATE bookmarks SET title = '#{title}', url = '#{url}' WHERE id= #{id} RETURNING id, title, url;")
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  end
+
+  def self.set_environment
+    if ENV['ENVIRONMENT'] == 'test'
+      DatabaseConnection.setup('bookmark_manager_test')
+    else
+      DatabaseConnection.setup('bookmark_manager')
+    end
   end
 
 end

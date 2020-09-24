@@ -13,12 +13,12 @@ end
 
 
 def add_urls
-  Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
-  Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
-  Bookmark.create(url: 'http://www.google.com', title: 'Google')
+  Bookmark.create('Makers Academy', 'http://www.makersacademy.com')
+  Bookmark.create('Destroy All Software', 'http://www.destroyallsoftware.com')
+  Bookmark.create('Google', 'http://www.google.com')
 end
 
 def add_url
-  Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+  Bookmark.create('Makers Academy', 'http://www.makersacademy.com')
 end
 

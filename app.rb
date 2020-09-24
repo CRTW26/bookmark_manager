@@ -8,10 +8,6 @@ class BookmarkManager < Sinatra::Base
 
   enable :sessions, :method_override
   
- # before do
-  #  @connection = DatabaseConnection.setup('bookmark_manager')
-  #end
-
   get '/' do
     redirect '/bookmarks'
   end
@@ -25,9 +21,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    url = params[:url]
-    title = params[:title]
-    Bookmark.create(title, url)
+    Bookmark.create(params[:title], params[:url])
     erb :bookmarks
   end
 
