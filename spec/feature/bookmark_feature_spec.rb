@@ -56,6 +56,15 @@ feature 'Update a bookmark' do
     click_button("Submit")
     expect(page).to have_content "Apple"
   end
+end
 
-
+feature 'Add a comment' do
+  scenario 'User wants to add a comment' do
+    Bookmark.create('Makers Academy', 'http://www.makersacademy.com')    
+    visit('/bookmarks')
+    click_on('Add comment')
+    fill_in('comment', with: "£10k?!")
+    click_on("Add comment")
+    expect(page).to have_content("£10k?!")
+  end
 end

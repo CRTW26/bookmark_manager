@@ -52,4 +52,11 @@ class Bookmark
     end
   end
 
+  def self.comment(id, comment)
+    Bookmark.set_environment
+    @connection = DatabaseConnection.connection
+
+    @connection.exec("INSERT INTO comments (text, bookmark_id) VALUES('#{comment}', #{id});")
+  end
+
 end

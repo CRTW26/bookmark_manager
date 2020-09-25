@@ -1,5 +1,6 @@
 <% @bookmarks = Bookmark.all %>
 <%= flash[:notice] %>
+
 <ul>
   <% @bookmarks.each do |bookmark| %>
     <li>
@@ -13,6 +14,9 @@
 
       <form method="get" action="/bookmarks/edit/<%= bookmark.id %>">
       <input type="submit" value="update"></form>
+
+      <form method="get" action="/bookmarks/new_comment/<%= bookmark.id %>">
+      <input type="submit" value="Add comment"></form>
 
     </li>
   <% end %>
