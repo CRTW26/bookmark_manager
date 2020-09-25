@@ -40,6 +40,7 @@ class Bookmark
   
   def self.update(id, title, url)
     Bookmark.set_environment
+    @connection = DatabaseConnection.connection
     result = @connection.exec("UPDATE bookmarks SET title = '#{title}', url = '#{url}' WHERE id= #{id} RETURNING id, title, url;")
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end

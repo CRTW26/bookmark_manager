@@ -1,7 +1,7 @@
 <title>Add a new comment</title>
 <h1>Add a comment here:</h1>
 
-<form action="/bookmarks/new_comment/:id" method="post">
+<form action="/bookmarks/new_comment/<%= @id %>" method="post">
   <input type="text" id="comment" name="comment"></input>
   <input type="submit" value="Add comment"></input>
 </form>
